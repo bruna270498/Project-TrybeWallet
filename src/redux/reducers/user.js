@@ -10,7 +10,7 @@ const infoPessoal = (state = ESTADO_INICIAL, action) => {
   case ADD_PESSOAL_INFO:
     return {
       ...state,
-      ...action.payload,
+      email: action.payload,
     };
   default:
     return state;
