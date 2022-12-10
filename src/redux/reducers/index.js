@@ -4,9 +4,8 @@ import InfoApi from './wallet';
 
 const rootReducer = combineReducers({
   user: infoPessoal,
-  wallet: {
-    currencies: InfoApi,
-  },
+  wallet: InfoApi,
+
 });
 
 export default rootReducer;

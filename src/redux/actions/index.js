@@ -9,13 +9,13 @@ export const addPessoal = (infoPessoal) => ({
 
 export const request = (infoApi) => ({
   type: INFO_API,
-  payload: {
-    ...infoApi,
-  },
+  payload: infoApi,
+
 });
 
 export const requestApi = () => async (dispatch) => {
   const resultado = await fetch('https://economia.awesomeapi.com.br/json/all');
-  const currencies = resultado.json();
+  const json = await resultado.json();
+  const currencies = Object.keys(json).filter((currency) => currency !== 'USDT');
   dispatch(request(currencies));
 };

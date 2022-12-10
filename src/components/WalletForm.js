@@ -9,25 +9,61 @@ class WalletForm extends Component {
     dispatch(requestApi());
   }
 
-  render() {
+  moedas = () => {
     const { currencies } = this.props;
-    console.log(currencies);
+    const optionsMoeda = currencies.map((moeda, index) => (
+      <option key={ index } value={ moeda }>
+        {moeda}
+      </option>));
+    return optionsMoeda;
+  };
+
+  render() {
     return (
       <div>
         <form>
-          <input
-            data-testid="value-input"
-            type="number"
-            placeholder="Valor"
-          />
-          <input
-            data-testid="description-input"
-            type="text"
-            placeholder="Descrição das despesas"
-          />
-          <select data-testid="currency-input">
-            {}
-          </select>
+          <label htmlFor="valor">
+            Valor:
+            <input
+              data-testid="value-input"
+              type="number"
+              placeholder="0"
+              id="valor"
+            />
+          </label>
+          <label htmlFor="descricao">
+            Descrição:
+            <input
+              data-testid="description-input"
+              type="text"
+              placeholder="Descrição das despesas"
+              id="descricao"
+            />
+          </label>
+          <label htmlFor="moedas">
+            Moeda:
+            <select data-testid="currency-input" id="moedas">
+              {this.moedas()}
+            </select>
+          </label>
+          <label htmlFor="pagamento">
+            Método de Pagamento:
+            <select data-testid="method-input" id="pagamento">
+              <option>Dinheiro</option>
+              <option>Cartão de crédito</option>
+              <option>Cartão de débito</option>
+            </select>
+          </label>
+          <label htmlFor="categoria">
+            Categoria:
+            <select data-testid="tag-input" id="categoria">
+              <option>Alimentação</option>
+              <option>Lazer</option>
+              <option>Trabalho</option>
+              <option>Transporte</option>
+              <option>Saúde</option>
+            </select>
+          </label>
         </form>
 
       </div>
@@ -43,8 +79,6 @@ WalletForm.propTypes = {
   ]).isRequired,
 };
 
-const mapStateToProps = (estadoGlobal) => ({
-  ...estadoGlobal.wallet,
-});
+const mapStateToProps = (estadoGlobal) => ({ ...estadoGlobal.wallet });
 
 export default connect(mapStateToProps)(WalletForm);
