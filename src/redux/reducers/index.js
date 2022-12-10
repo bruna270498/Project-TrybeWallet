@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import infoPessoal from './user';
-import InfoApi from './wallet';
+import InfoRequisicao from './wallet';
 
 const rootReducer = combineReducers({
   user: infoPessoal,
-  wallet: InfoApi,
+  wallet: InfoRequisicao,
 
 });
 

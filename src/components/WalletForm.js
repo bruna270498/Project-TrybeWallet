@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { requestApi } from '../redux/actions';
+import { requestApi, listaDeDespesas, ApiCompleta } from '../redux/actions';
 
 class WalletForm extends Component {
+  state = {
+    id: 0,
+    valor: 0,
+    descricao: '',
+    moeda: 'USD',
+    pagamento: 'Dinheiro',
+    categoria: 'Alimentação',
+  };
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(requestApi());
@@ -18,17 +27,53 @@ class WalletForm extends Component {
     return optionsMoeda;
   };
 
+  valorDeInput = ({ target }) => {
+    const { value, name } = target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  salvarForm = async (event) => {
+    event.preventDefault();
+    const { id, valor, descricao, moeda, pagamento, categoria } = this.state;
+    const { dispatch } = this.props;
+    const resultApi = await ApiCompleta();
+    const novoObj = {
+      id,
+      valor,
+      descricao,
+      moeda,
+      pagamento,
+      categoria,
+      resultApi,
+    };
+    dispatch(listaDeDespesas(novoObj));
+    this.setState({
+      id: id + 1,
+      valor: '',
+      descricao: '',
+      moeda: 'USD',
+      pagamento: 'Dinheiro',
+      categoria: 'Alimentação',
+    });
+  };
+
   render() {
+    const { valor, descricao, moeda, pagamento, categoria } = this.state;
     return (
       <div>
-        <form>
+        <form onSubmit={ this.salvarForm }>
           <label htmlFor="valor">
             Valor:
             <input
               data-testid="value-input"
               type="number"
+              name="valor"
               placeholder="0"
               id="valor"
+              value={ valor }
+              onChange={ this.valorDeInput }
             />
           </label>
           <label htmlFor="descricao">
@@ -36,19 +81,34 @@ class WalletForm extends Component {
             <input
               data-testid="description-input"
               type="text"
+              name="descricao"
+              value={ descricao }
               placeholder="Descrição das despesas"
               id="descricao"
+              onChange={ this.valorDeInput }
             />
           </label>
           <label htmlFor="moedas">
             Moeda:
-            <select data-testid="currency-input" id="moedas">
+            <select
+              data-testid="currency-input"
+              id="moedas"
+              name="moeda"
+              value={ moeda }
+              onChange={ this.valorDeInput }
+            >
               {this.moedas()}
             </select>
           </label>
           <label htmlFor="pagamento">
             Método de Pagamento:
-            <select data-testid="method-input" id="pagamento">
+            <select
+              data-testid="method-input"
+              id="pagamento"
+              name="pagamento"
+              value={ pagamento }
+              onChange={ this.valorDeInput }
+            >
               <option>Dinheiro</option>
               <option>Cartão de crédito</option>
               <option>Cartão de débito</option>
@@ -56,7 +116,13 @@ class WalletForm extends Component {
           </label>
           <label htmlFor="categoria">
             Categoria:
-            <select data-testid="tag-input" id="categoria">
+            <select
+              onChange={ this.valorDeInput }
+              name="categoria"
+              data-testid="tag-input"
+              id="categoria"
+              value={ categoria }
+            >
               <option>Alimentação</option>
               <option>Lazer</option>
               <option>Trabalho</option>
@@ -64,6 +130,13 @@ class WalletForm extends Component {
               <option>Saúde</option>
             </select>
           </label>
+          <button
+            type="submit"
+            onClick={ this.valorTotal }
+
+          >
+            Adicionar despesa
+          </button>
         </form>
 
       </div>
@@ -79,6 +152,9 @@ WalletForm.propTypes = {
   ]).isRequired,
 };
 
-const mapStateToProps = (estadoGlobal) => ({ ...estadoGlobal.wallet });
+const mapStateToProps = (estadoGlobal) => {
+  console.log(estadoGlobal);
+  return { ...estadoGlobal.wallet };
+};
 
 export default connect(mapStateToProps)(WalletForm);
