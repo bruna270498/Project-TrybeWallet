@@ -2,6 +2,7 @@
 export const ADD_PESSOAL_INFO = 'ADD_PESSOAL_INFO';
 export const INFO_API = 'INFO_API';
 export const DESPESAS = 'DESPESAS';
+export const VALOR_MOEDA = 'VALOR_MOEDA';
 
 export const addPessoal = (infoPessoal) => ({
   type: ADD_PESSOAL_INFO,
@@ -17,6 +18,11 @@ export const request = (infoApi) => ({
 export const listaDeDespesas = (despesa) => ({
   type: DESPESAS,
   payload: despesa,
+});
+
+export const moedaSelecionada = (moeda) => ({
+  type: VALOR_MOEDA,
+  payload: moeda,
 });
 
 export const requestApi = () => async (dispatch) => {

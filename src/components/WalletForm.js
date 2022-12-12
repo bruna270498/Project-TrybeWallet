@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { requestApi, listaDeDespesas, ApiCompleta } from '../redux/actions';
+import { requestApi,
+  listaDeDespesas,
+  ApiCompleta,
+  moedaSelecionada }
+  from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
@@ -46,8 +50,9 @@ class WalletForm extends Component {
       moeda,
       pagamento,
       categoria,
-      resultApi,
     };
+    dispatch(moedaSelecionada(resultApi[moeda]));
+
     dispatch(listaDeDespesas(novoObj));
     this.setState({
       id: id + 1,

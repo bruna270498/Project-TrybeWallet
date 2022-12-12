@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Table extends Component {
   render() {
@@ -18,4 +19,6 @@ class Table extends Component {
   }
 }
 
-export default Table;
+const mapStateToProps = (estadoGlobal) => ({ ...estadoGlobal.wallet.expenses });
+
+export default connect(mapStateToProps)(Table);
