@@ -26,7 +26,7 @@ const InfoRequisicao = (state = ESTADO_INICIAL, action) => {
       ...state,
       expenses: [...state.expenses, action.payload],
       total: state.total + (action
-        .payload.valor * state.valorMoeda),
+        .payload.value * state.valorMoeda),
     };
 
   default:

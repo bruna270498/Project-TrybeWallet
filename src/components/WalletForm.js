@@ -10,11 +10,11 @@ import { requestApi,
 class WalletForm extends Component {
   state = {
     id: 0,
-    valor: 0,
-    descricao: '',
-    moeda: 'USD',
-    pagamento: 'Dinheiro',
-    categoria: 'Alimentação',
+    value: '',
+    description: '',
+    currency: 'USD',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
   };
 
   componentDidMount() {
@@ -40,32 +40,33 @@ class WalletForm extends Component {
 
   salvarForm = async (event) => {
     event.preventDefault();
-    const { id, valor, descricao, moeda, pagamento, categoria } = this.state;
+    const { id, value, description, currency, method, tag } = this.state;
     const { dispatch } = this.props;
-    const resultApi = await ApiCompleta();
+    const exchangeRates = await ApiCompleta();
     const novoObj = {
       id,
-      valor,
-      descricao,
-      moeda,
-      pagamento,
-      categoria,
+      value,
+      description,
+      currency,
+      method,
+      tag,
+      exchangeRates,
     };
-    dispatch(moedaSelecionada(resultApi[moeda]));
+    dispatch(moedaSelecionada(exchangeRates[currency]));
 
     dispatch(listaDeDespesas(novoObj));
     this.setState({
       id: id + 1,
-      valor: '',
-      descricao: '',
-      moeda: 'USD',
-      pagamento: 'Dinheiro',
-      categoria: 'Alimentação',
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     });
   };
 
   render() {
-    const { valor, descricao, moeda, pagamento, categoria } = this.state;
+    const { value, description, currency, method, tag } = this.state;
     return (
       <div>
         <form onSubmit={ this.salvarForm }>
@@ -74,10 +75,10 @@ class WalletForm extends Component {
             <input
               data-testid="value-input"
               type="number"
-              name="valor"
+              name="value"
               placeholder="0"
               id="valor"
-              value={ valor }
+              value={ value }
               onChange={ this.valorDeInput }
             />
           </label>
@@ -86,8 +87,8 @@ class WalletForm extends Component {
             <input
               data-testid="description-input"
               type="text"
-              name="descricao"
-              value={ descricao }
+              name="description"
+              value={ description }
               placeholder="Descrição das despesas"
               id="descricao"
               onChange={ this.valorDeInput }
@@ -98,8 +99,8 @@ class WalletForm extends Component {
             <select
               data-testid="currency-input"
               id="moedas"
-              name="moeda"
-              value={ moeda }
+              name="currency"
+              value={ currency }
               onChange={ this.valorDeInput }
             >
               {this.moedas()}
@@ -110,8 +111,8 @@ class WalletForm extends Component {
             <select
               data-testid="method-input"
               id="pagamento"
-              name="pagamento"
-              value={ pagamento }
+              name="method"
+              value={ method }
               onChange={ this.valorDeInput }
             >
               <option>Dinheiro</option>
@@ -123,10 +124,10 @@ class WalletForm extends Component {
             Categoria:
             <select
               onChange={ this.valorDeInput }
-              name="categoria"
+              name="tag"
               data-testid="tag-input"
               id="categoria"
-              value={ categoria }
+              value={ tag }
             >
               <option>Alimentação</option>
               <option>Lazer</option>
