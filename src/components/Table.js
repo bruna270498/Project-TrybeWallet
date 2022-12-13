@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Table extends Component {
-  oi = () => {
+  tabela = () => {
     const { expenses } = this.props;
-    const k = expenses.map((index) => {
+    const listaTabela = expenses.map((index) => {
       const { value, description, currency, method, tag, exchangeRates } = index;
       const cambio = +exchangeRates[currency].ask;
       const moeda = cambio.toFixed(2);
       const multValor = value * cambio;
+      const valor = +value;
       return (
         <tr key={ index }>
           <td>{description}</td>
           <td>{tag}</td>
           <td>{method}</td>
-          <td>{value}</td>
+          <td>{valor.toFixed(2)}</td>
           <td>{exchangeRates[currency].name}</td>
           <td>{moeda}</td>
           <td>{multValor.toFixed(2)}</td>
@@ -24,14 +25,12 @@ class Table extends Component {
           <button type="submit">Excluir</button>
         </tr>);
     });
-    return k;
+    return listaTabela;
   };
 
   render() {
-    const o = 5.457;
-    const l = o.toFixed(2);
     return (
-      <header>
+      <table>
         <th>Descrição</th>
         <th>Tag</th>
         <th>Método de pagamento</th>
@@ -41,9 +40,10 @@ class Table extends Component {
         <th>Valor convertido</th>
         <th>Moeda de conversão</th>
         <th>Editar/Excluir</th>
-        {this.oi()}
-        <h1>{l}</h1>
-      </header>
+        <tbody>
+          {this.tabela()}
+        </tbody>
+      </table>
     );
   }
 }
