@@ -59,7 +59,43 @@ describe('Testando a aplicação', () => {
     const sigla = screen.getByText(/brl/i);
     expect(sigla).toBeInTheDocument();
   });
-  it('Verificando se é renderizado todos os intens da tabela', () => {
-    renderWithRouterAndRedux(<App />, initialEntries = ['/carteira'])
+  it('Verificando se é renderizado todos os intens do form', () => {
+    const initialEntries = ['/carteira'];
+    renderWithRouterAndRedux(<App />, { initialEntries });
+
+    const inputValor = screen.getByText(/valor:/i);
+    expect(inputValor).toBeInTheDocument();
+
+    const inputDescricao = screen.getByRole('textbox', { name: /descrição:/i });
+    expect(inputDescricao).toBeInTheDocument();
+
+    const inputMoeda = screen.getByText(/moeda:/i);
+    expect(inputMoeda).toBeInTheDocument();
+
+    const inputPagamento = screen.getByText(/Método de Pagamento:/i);
+    expect(inputPagamento).toBeInTheDocument();
+
+    const inputCategoria = screen.getByText(/Categoria:/i);
+    expect(inputCategoria).toBeInTheDocument();
+
+    const botao = screen.getByRole('button', { name: /adicionar despesa/i });
+    expect(botao).toBeInTheDocument();
   });
+  // it('Verificando a minha tabela', () => {
+  //   const initialEntries = ['/carteira'];
+  //   renderWithRouterAndRedux(<App />, { initialEntries });
+
+  //   const tabela = screen.getByRole('table');
+  //   expect(tabela).toBeInTheDocument();
+
+  //   const descricao = screen.getByRole('columnheader', { name: /descrição/i });
+  //   const categoria = screen.getByRole('columnheader', { name: /tag/i });
+  //   const pagamento = screen.getByRole('columnheader', { name: /método de pagamento/i });
+  //   const valor = screen.getByRole('columnheader', { name: /valor/i });
+  //   const cambio = screen.getByRole('columnheader', { name: /Câmbio utilizado/i });
+  //   const conversao = screen.getByRole('columnheader', { name: /valor convertido/i });
+  //   const botoes = screen.getByRole('columnheader', { name: /editar\/excluir/i });
+  //   const moedaBR = screen.getByRole('columnheader', { name: /valor convertido/i });
+
+  // });
 });

@@ -26,8 +26,9 @@ const InfoRequisicao = (state = ESTADO_INICIAL, action) => {
     return {
       ...state,
       expenses: [...state.expenses, action.payload],
-      total: state.total + (action
-        .payload.value * state.valorMoeda),
+      // total: state.total + (action
+      //   .payload.value * state.valorMoeda),
+
     };
   case EXCLUIR_DESPESA:
     return {
