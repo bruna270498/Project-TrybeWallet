@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { exluirDespesadeTabela } from '../redux/actions';
 
 class Table extends Component {
   tabela = () => {
     const { expenses } = this.props;
     const listaTabela = expenses.map((index) => {
-      const { value, description, currency, method, tag, exchangeRates } = index;
+      const { id, value, description, currency, method, tag, exchangeRates } = index;
       const cambio = +exchangeRates[currency].ask;
       const moeda = cambio.toFixed(2);
       const multValor = value * cambio;
       const valor = +value;
       return (
-        <tr key={ index }>
+        <tr key={ id }>
           <td>{description}</td>
           <td>{tag}</td>
           <td>{method}</td>
@@ -22,10 +23,23 @@ class Table extends Component {
           <td>{multValor.toFixed(2)}</td>
           <td>Real</td>
           <button type="submit">Editar</button>
-          <button type="submit">Excluir</button>
+          <button
+            type="submit"
+            data-testid="delete-btn"
+            onClick={ () => { this.botaoExcluir(id); } }
+          >
+            Excluir
+
+          </button>
         </tr>);
     });
     return listaTabela;
+  };
+
+  botaoExcluir = (id) => {
+    const { expenses, dispatch } = this.props;
+
+    dispatch(exluirDespesadeTabela(id, expenses));
   };
 
   render() {
