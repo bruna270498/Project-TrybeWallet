@@ -40,4 +40,26 @@ describe('Testando a aplicação', () => {
 
     expect(history.location.pathname).toBe('/carteira');
   });
+  it('Verificando se tem o email e o total no header', () => {
+    renderWithRouterAndRedux(<App />);
+    const inputEmail = screen.getByRole('textbox');
+    const inputSenha = screen.getByPlaceholderText(/digite sua senha/i);
+    const botao = screen.getByRole('button', { name: /entrar/i });
+
+    fireEvent.change(inputEmail, { target: { value: 'alguem@alguem.com' } });
+    fireEvent.change(inputSenha, { target: { value: '123456' } });
+    userEvent.click(botao);
+
+    const email = screen.getByText(/alguem@alguem.com/i);
+    expect(email).toBeInTheDocument();
+
+    const total = screen.getByTestId('total-field');
+    expect(total).toBeInTheDocument();
+
+    const sigla = screen.getByText(/brl/i);
+    expect(sigla).toBeInTheDocument();
+  });
+  it('Verificando se é renderizado todos os intens da tabela', () => {
+    renderWithRouterAndRedux(<App />, initialEntries = ['/carteira'])
+  });
 });

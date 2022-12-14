@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { exluirDespesadeTabela } from '../redux/actions';
+import { atualizarTotal, exluirDespesadeTabela } from '../redux/actions';
 
 class Table extends Component {
   tabela = () => {
@@ -22,15 +22,17 @@ class Table extends Component {
           <td>{moeda}</td>
           <td>{multValor.toFixed(2)}</td>
           <td>Real</td>
-          <button type="submit">Editar</button>
-          <button
-            type="submit"
-            data-testid="delete-btn"
-            onClick={ () => { this.botaoExcluir(id); } }
-          >
-            Excluir
+          <td>
+            <button type="submit">Editar</button>
+            <button
+              type="button"
+              data-testid="delete-btn"
+              onClick={ () => { this.botaoExcluir(id); } }
+            >
+              Excluir
 
-          </button>
+            </button>
+          </td>
         </tr>);
     });
     return listaTabela;
@@ -40,6 +42,7 @@ class Table extends Component {
     const { expenses, dispatch } = this.props;
 
     dispatch(exluirDespesadeTabela(id, expenses));
+    dispatch(atualizarTotal());
   };
 
   render() {
@@ -64,6 +67,7 @@ class Table extends Component {
 
 Table.propTypes = {
   expenses: PropTypes.objectOf.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (estadoGlobal) => ({ ...estadoGlobal.wallet });

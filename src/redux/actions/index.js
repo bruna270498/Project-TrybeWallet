@@ -4,6 +4,7 @@ export const INFO_API = 'INFO_API';
 export const DESPESAS = 'DESPESAS';
 export const VALOR_MOEDA = 'VALOR_MOEDA';
 export const EXCLUIR_DESPESA = 'EXCLUIR_DESPESA';
+export const ATUALIZAR_TOTAL = 'ATUALIZAR_TOTAL';
 
 export const addPessoal = (infoPessoal) => ({
   type: ADD_PESSOAL_INFO,
@@ -29,6 +30,10 @@ export const moedaSelecionada = (moeda) => ({
 export const exluirDespesadeTabela = (id, expenses) => ({
   type: EXCLUIR_DESPESA,
   payload: expenses.filter((despesa) => despesa.id !== id),
+});
+
+export const atualizarTotal = () => ({
+  type: ATUALIZAR_TOTAL,
 });
 
 export const requestApi = () => async (dispatch) => {
