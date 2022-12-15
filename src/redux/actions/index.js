@@ -5,6 +5,7 @@ export const DESPESAS = 'DESPESAS';
 export const VALOR_MOEDA = 'VALOR_MOEDA';
 export const EXCLUIR_DESPESA = 'EXCLUIR_DESPESA';
 export const ATUALIZAR_TOTAL = 'ATUALIZAR_TOTAL';
+export const EDITAR_TABELA = 'EDITAR_TABELA';
 
 export const addPessoal = (infoPessoal) => ({
   type: ADD_PESSOAL_INFO,
@@ -34,6 +35,11 @@ export const exluirDespesadeTabela = (id, expenses) => ({
 
 export const atualizarTotal = () => ({
   type: ATUALIZAR_TOTAL,
+});
+
+export const btnEditar = (editar) => ({
+  type: EDITAR_TABELA,
+  payload: editar,
 });
 
 export const requestApi = () => async (dispatch) => {

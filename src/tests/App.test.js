@@ -78,6 +78,10 @@ describe('Testando a aplicação', () => {
     const inputCategoria = screen.getByText(/Categoria:/i);
     expect(inputCategoria).toBeInTheDocument();
 
+    const checkMoeda = screen.getByRole('combobox', { name: /moeda:/i });
+    fireEvent.change(checkMoeda, { target: { value: 'USD ' } });
+    expect(checkMoeda).toBeInTheDocument();
+
     const botao = screen.getByRole('button', { name: /adicionar despesa/i });
     expect(botao).toBeInTheDocument();
   });
@@ -106,14 +110,42 @@ describe('Testando a aplicação', () => {
     expect(botoes).toBeInTheDocument();
     expect(moedaBR).toBeInTheDocument();
   });
-  it('Verificando a dinamica da tabela', () => {
+  it('Verificando a dinamica da tabela', async () => {
     const initialEntries = ['/carteira'];
     renderWithRouterAndRedux(<App />, { initialEntries });
 
     const tabela = screen.getByRole('rowgroup');
     expect(tabela).toBeInTheDocument();
 
+    const inputDescricao = screen.getByRole('textbox', { name: /descrição:/i });
+    fireEvent.change(inputDescricao, { target: { value: 'feijao' } });
+
+    const valor = screen.getByRole('spinbutton', { name: /valor:/i });
+    fireEvent.change(valor, { target: { value: '10.00' } });
+
+    const pag = screen.getByRole('option', { name: /dinheiro/i });
+    userEvent.click(pag);
+
+    const tag = screen.getByRole('option', { name: /alimentação/i });
+    userEvent.click(tag);
+
     const btnAdd = screen.getByRole('button', { name: /adicionar despesa/i });
     userEvent.click(btnAdd);
+
+    await screen.findAllByRole('cell');
+  });
+  it('verificando botão de excluir', async () => {
+    const initialEntries = ['/carteira'];
+    renderWithRouterAndRedux(<App />, { initialEntries });
+
+    const btnAdd = screen.getByRole('button', { name: /adicionar despesa/i });
+    userEvent.click(btnAdd);
+
+    await screen.getByRole('rowgroup');
+
+    const btn = await screen.findByRole('button', { name: /excluir/i });
+    expect(btn).toBeInTheDocument();
+
+    userEvent.click(btn);
   });
 });

@@ -23,7 +23,13 @@ class Table extends Component {
           <td>{multValor.toFixed(2)}</td>
           <td>Real</td>
           <td>
-            <button type="submit">Editar</button>
+            <button
+              type="submit"
+              data-testid="edit-btn"
+            >
+              Editar
+
+            </button>
             <button
               type="button"
               data-testid="delete-btn"
