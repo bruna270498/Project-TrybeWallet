@@ -81,21 +81,39 @@ describe('Testando a aplicação', () => {
     const botao = screen.getByRole('button', { name: /adicionar despesa/i });
     expect(botao).toBeInTheDocument();
   });
-  // it('Verificando a minha tabela', () => {
-  //   const initialEntries = ['/carteira'];
-  //   renderWithRouterAndRedux(<App />, { initialEntries });
+  it('Verificando a minha tabela', () => {
+    const initialEntries = ['/carteira'];
+    renderWithRouterAndRedux(<App />, { initialEntries });
 
-  //   const tabela = screen.getByRole('table');
-  //   expect(tabela).toBeInTheDocument();
+    const tabela = screen.getByRole('table');
+    expect(tabela).toBeInTheDocument();
 
-  //   const descricao = screen.getByRole('columnheader', { name: /descrição/i });
-  //   const categoria = screen.getByRole('columnheader', { name: /tag/i });
-  //   const pagamento = screen.getByRole('columnheader', { name: /método de pagamento/i });
-  //   const valor = screen.getByRole('columnheader', { name: /valor/i });
-  //   const cambio = screen.getByRole('columnheader', { name: /Câmbio utilizado/i });
-  //   const conversao = screen.getByRole('columnheader', { name: /valor convertido/i });
-  //   const botoes = screen.getByRole('columnheader', { name: /editar\/excluir/i });
-  //   const moedaBR = screen.getByRole('columnheader', { name: /valor convertido/i });
+    const descricao = screen.getByRole('columnheader', { name: /descrição/i });
+    const categoria = screen.getByRole('columnheader', { name: /tag/i });
+    const pagamento = screen.getByRole('columnheader', { name: /método de pagamento/i });
+    const valor = screen.getByRole('columnheader', { name: /valor/i });
+    const cambio = screen.getByRole('columnheader', { name: /Câmbio utilizado/i });
+    const conversao = screen.getByRole('columnheader', { name: /valor convertido/i });
+    const botoes = screen.getByRole('columnheader', { name: /editar\/excluir/i });
+    const moedaBR = screen.getByRole('columnheader', { name: /valor convertido/i });
 
-  // });
+    expect(descricao).toBeInTheDocument();
+    expect(categoria).toBeInTheDocument();
+    expect(pagamento).toBeInTheDocument();
+    expect(valor).toBeInTheDocument();
+    expect(cambio).toBeInTheDocument();
+    expect(conversao).toBeInTheDocument();
+    expect(botoes).toBeInTheDocument();
+    expect(moedaBR).toBeInTheDocument();
+  });
+  it('Verificando a dinamica da tabela', () => {
+    const initialEntries = ['/carteira'];
+    renderWithRouterAndRedux(<App />, { initialEntries });
+
+    const tabela = screen.getByRole('rowgroup');
+    expect(tabela).toBeInTheDocument();
+
+    const btnAdd = screen.getByRole('button', { name: /adicionar despesa/i });
+    userEvent.click(btnAdd);
+  });
 });
