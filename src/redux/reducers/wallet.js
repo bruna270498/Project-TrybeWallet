@@ -7,6 +7,7 @@ const ESTADO_INICIAL = {
   expenses: [],
   total: 0,
   valorMoeda: 0,
+  editar: true,
 };
 
 const InfoRequisicao = (state = ESTADO_INICIAL, action) => {

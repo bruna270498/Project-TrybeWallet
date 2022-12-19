@@ -26,6 +26,7 @@ class Table extends Component {
             <button
               type="submit"
               data-testid="edit-btn"
+              onClick={ () => { this.btnEditar(id); } }
             >
               Editar
 
@@ -49,6 +50,17 @@ class Table extends Component {
 
     dispatch(exluirDespesadeTabela(id, expenses));
     dispatch(atualizarTotal());
+  };
+
+  btnEditar = (id) => {
+    const { dispatch, expenses } = this.props;
+
+    const l = expenses.find((e) => {
+      if (e.id === id) {
+        return e;
+      }
+    });
+    console.log(l);
   };
 
   render() {
