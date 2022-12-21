@@ -39,3 +39,19 @@
     transform: rotate(360deg);
   }
 }
+
+.formulario {
+  display: flexbox;
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  margin-left: 30%;
+  margin-top: 100px;
+  margin-right: 30%;
+}
+
+.titulo {
+  margin-top: 60px;
+}
+

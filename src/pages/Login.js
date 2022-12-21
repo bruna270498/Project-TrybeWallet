@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { RiMailLine } from 'react-icons/ri';
+import { BsBag } from 'react-icons/bs';
 import { addPessoal } from '../redux/actions';
 
 class Login extends React.Component {
@@ -37,30 +39,54 @@ class Login extends React.Component {
   render() {
     const { isBtnDisabled } = this.state;
     return (
-      <div>
-        <h1>Login</h1>
+      <div className="formulario">
+        <h1 className="title is-1 titulo">Login</h1>
         <form onSubmit={ this.salvarForm }>
-          <input
-            data-testid="email-input"
-            type="email"
-            name="email"
-            onChange={ this.validaEmaileSenha }
-            placeholder="Digite seu email"
-          />
-          <input
-            data-testid="password-input"
-            type="password"
-            name="senha"
-            placeholder="Digite sua senha"
-            onChange={ this.validaEmaileSenha }
-          />
-          <button
-            type="submit"
-            disabled={ !isBtnDisabled }
-          >
-            Entrar
+          <div className="field">
+            <p className="control has-icons-left has-icons-right">
 
-          </button>
+              <input
+                data-testid="email-input"
+                type="email"
+                name="email"
+                onChange={ this.validaEmaileSenha }
+                placeholder="Email"
+                className="input input is-large input is-rounded"
+              />
+              <span className="icon is-small is-left">
+                <i>
+                  <RiMailLine />
+                </i>
+              </span>
+            </p>
+          </div>
+          <div className="field">
+            <p className="control has-icons-left">
+              <input
+                data-testid="password-input"
+                type="password"
+                name="senha"
+                className="input input is-large input is-rounded"
+                placeholder="Password"
+                onChange={ this.validaEmaileSenha }
+              />
+              <span className="icon is-small is-left">
+                <i><BsBag /></i>
+              </span>
+            </p>
+          </div>
+          <div className="field">
+            <p className="control">
+              <button
+                type="submit"
+                className="button is-success button is-rounded button is-large"
+                disabled={ !isBtnDisabled }
+              >
+                Entrar
+
+              </button>
+            </p>
+          </div>
         </form>
       </div>
     );
