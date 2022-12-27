@@ -40,10 +40,10 @@ class Login extends React.Component {
     const { isBtnDisabled } = this.state;
     return (
       <div className="formulario">
-        <h1 className="title is-1 titulo">Login</h1>
+        <h1 className="titulo">Login</h1>
         <form onSubmit={ this.salvarForm }>
           <div className="field">
-            <p className="control has-icons-left has-icons-right">
+            <p className="control has-icons-left has-icons-right email">
 
               <input
                 data-testid="email-input"
@@ -51,7 +51,7 @@ class Login extends React.Component {
                 name="email"
                 onChange={ this.validaEmaileSenha }
                 placeholder="Email"
-                className="input input is-large input is-rounded"
+                className="input input is-medium input is-rounded email"
               />
               <span className="icon is-small is-left">
                 <i>
@@ -66,7 +66,7 @@ class Login extends React.Component {
                 data-testid="password-input"
                 type="password"
                 name="senha"
-                className="input input is-large input is-rounded"
+                className="input input is-medium input is-rounded"
                 placeholder="Password"
                 onChange={ this.validaEmaileSenha }
               />
@@ -75,7 +75,7 @@ class Login extends React.Component {
               </span>
             </p>
           </div>
-          <div className="field">
+          <div className="botaoEntrar">
             <p className="control">
               <button
                 type="submit"
