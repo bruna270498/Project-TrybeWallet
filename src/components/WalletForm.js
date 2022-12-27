@@ -68,36 +68,37 @@ class WalletForm extends Component {
   render() {
     const { value, description, currency, method, tag } = this.state;
     return (
-      <div>
+      <div className="formularioWallet">
         <form onSubmit={ this.salvarForm }>
-          <label htmlFor="valor">
-            Valor:
+          <label htmlFor="valor" className="valor">
+            Valor
             <input
+              className="valorInput"
               data-testid="value-input"
               type="number"
               name="value"
-              placeholder="0"
               id="valor"
               value={ value }
               onChange={ this.valorDeInput }
             />
           </label>
-          <label htmlFor="descricao">
-            Descrição:
+          <label htmlFor="descricao" className="descricao">
+            Descrição de despesas
             <input
               data-testid="description-input"
+              className="inputDescricao"
               type="text"
               name="description"
               value={ description }
-              placeholder="Descrição das despesas"
               id="descricao"
               onChange={ this.valorDeInput }
             />
           </label>
-          <label htmlFor="moedas">
-            Moeda:
+          <label htmlFor="moedas" className="moedaa">
+            Moeda
             <select
               data-testid="currency-input"
+              className="InputMoeda"
               id="moedas"
               name="currency"
               value={ currency }
@@ -106,11 +107,12 @@ class WalletForm extends Component {
               {this.moedas()}
             </select>
           </label>
-          <label htmlFor="pagamento">
-            Método de Pagamento:
+          <label htmlFor="pagamento" className="pagamento">
+            Método de Pagamento
             <select
               data-testid="method-input"
               id="pagamento"
+              className="pagamentoInput"
               name="method"
               value={ method }
               onChange={ this.valorDeInput }
@@ -120,9 +122,10 @@ class WalletForm extends Component {
               <option>Cartão de débito</option>
             </select>
           </label>
-          <label htmlFor="categoria">
-            Categoria:
+          <label htmlFor="categoria" className="categoria">
+            Categoria
             <select
+              className="categoriaInput"
               onChange={ this.valorDeInput }
               name="tag"
               data-testid="tag-input"
@@ -138,6 +141,7 @@ class WalletForm extends Component {
           </label>
           <button
             type="submit"
+            className="btnForm"
             onClick={ this.valorTotal }
 
           >

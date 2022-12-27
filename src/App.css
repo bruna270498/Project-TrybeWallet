@@ -1,46 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
 .formulario {
   display: flexbox;
   text-align: center;
@@ -74,9 +31,9 @@
 }
 
 .dinheiroImg {
-  left: 250.92px;
+  left: 100.92px;
   right: 78.24%;
-  top: 76.78px;
+  top: 150px;
   bottom: 85.47%;
   width: 37.85px;
   position: absolute;
@@ -87,20 +44,20 @@
   font-size: 30px;
   position: absolute;
   width: 79.99px;
-  left: 290.92px;
-  top: 76.78px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  left: 145px;
+  top: 150px;
+  font-family: 'Epilogue';
 }
 
 .subtitleTabela {
   color: #2FC18C;
   width: 104.46px;
   height: 24.92px;
-  left: 365.71px;
-  top: 76.78px;
+  left: 220px;
+  top: 150px;
   position: absolute;
   font-size: 30px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Epilogue';
   font-weight: bold;
 }
 
@@ -108,55 +65,250 @@
   color:#003BE5;
   font-size: 25px;
   position: absolute;
-  left: 572px;
-right: 54.4%;
-top: 11.25%;
-bottom: 84.76%;
-  
+  left: 372px;
+  top: 150px;
 }
 
 .moeda {
   color:#003BE5;
   position: absolute;
   width: 233px;
-  height: 14px;
-  left: 594px;
-  top: 95px;
+  left: 400px;
+  top: 160px;
   font-family: 'Epilogue';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 14px;
 }
 
 .emailincon {
   color: #2FC18C;
   font-size: 25px;
   position: absolute;
-  left: 900px;
-  top: 80px;
-  bottom: 85.11%;
-  border: 1px solid;
-  height: 40px;
-  width: 30px;
+  left: 650px;
+  top: 150px;
+  border: 3px solid;
+  height: 35px;
+  width: 31px;
   border-radius: 45%;
 }
 
 .emaill {
   color: #2FC18C;
-  font-size: 14px;
+  font-size: 16px;
   position: absolute;
   width: 123px;
-height: 16px;
-left: 931px;
-top: 90px;
-
-font-family: 'Epilogue';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 16px;
-display: flex;
-align-items: center;
+  left: 690px;
+  top: 160px;
+  
+  font-family: 'Epilogue';
+  font-weight: 600;
+  font-size: 16px;
 }
 
+.formularioWallet {
+  /* display: flexbox; */
+  top: 200px;
+  position: absolute;
+  width: 1037px;
+  height: 260px;
+  background: rgba(225, 229, 235, 0.49);
+}
+
+.conteinerHedear {
+  position: absolute;
+  display: flexbox;
+  width: 1037px;
+  height: 482px;
+  top: -97px;
+  left: 211px;
+  background: #FFFFFF;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+  border-radius: 10px;
+}
+
+.valor , .descricao , .moedaa , .pagamento , .categoria {
+  font-family: 'Epilogue';
+  position: absolute;
+  font-size: 18px;
+  color: #003BE5;
+  font-weight: 700;
+}
+
+.valor {
+  top: 110px;
+  left: 50px;
+}
+
+.valorInput {
+  font-family: 'Epilogue';
+  position: absolute;
+  font-size: 16px;
+  color: #003BE5;
+  border: 1px solid #003BE5;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 158px;
+  height: 30px;
+  left: 70px;
+}
+
+.descricao {
+  left: 50px;
+  top: 50px;
+}
+
+.inputDescricao {
+  width: 288.86px;
+  left: 190px;
+  position: absolute;
+  height: 30px;
+  border: 1px solid #003BE5;
+  border-radius: 5px;
+  color: #003BE5;
+}
+
+.moedaa {
+  left: 750px;
+  top: 110px;
+}
+
+.InputMoeda {
+  box-sizing: border-box;
+  width: 91px;
+  background-color: #FFFFFF;
+  left: 70px;
+  position: absolute;
+  height: 30px;
+  border: 1px solid #003BE5;
+  border-radius: 5px;
+  color: #003BE5;
+}
+
+.pagamento {
+  top: 110px;
+  left: 300px;
+}
+
+.pagamentoInput {
+  box-sizing: border-box;
+  width: 228px;
+  background-color: #FFFFFF;
+  left: 200px;
+  position: absolute;
+  height: 30px;
+  border: 1px solid #003BE5;
+  border-radius: 5px;
+  color: #003BE5;
+  font-size: 18px;
+}
+
+.categoria {
+  left: 570px;
+  top: 50px;
+}
+
+.categoriaInput { 
+  box-sizing: border-box;
+  height: 30px;
+  background-color: #FFFFFF;
+  left: 100px;
+  position: absolute;
+  width: 155px;
+  border: 1px solid #003BE5;
+  border-radius: 5px;
+  color: #003BE5;
+  font-size: 18px;
+}
+
+.btnForm {
+  box-sizing: border-box;
+  width: 400px;
+  position: absolute;
+  height: 40px;
+  background: #2FC18C;
+  border: 1px solid #2FC18C;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-family: 'Epilogue';
+  font-size: 18px;
+  top: 200px;
+  left: 310px;
+}
+
+.tabelaConteiner {
+  position: absolute;
+  width: 1155px;
+  height: 464px;
+  left: 153px;
+  top: 370px;
+  background: #003BE5;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  border-radius: 10px;
+}
+
+.cabecalhoTabela {
+ color: #FFFFFF;
+ font-family: 'Epilogue';
+ font-weight: 600;
+ font-size: 17px;
+ display: flexbox;
+ top: 30px;
+ /* position: absolute; */
+}
+
+ .ed {
+  left: 1000px;
+} 
+
+.moeConv {
+  left: 830px;
+}
+
+.valCon {
+  left: 680px;
+}
+
+.cam {
+  left: 530px;
+}
+
+.md {
+  left: 460px;
+}
+
+.val {
+  left: 380px;
+}
+
+.pag {
+  left: 200px;
+}
+
+.tag {
+  left: 130px;
+}
+
+.des {
+  left: 40px;
+} 
+
+.tabela {
+  font-family: 'Epilogue';
+  font-weight: 500;
+  font-size: 18px;
+  display: flexbox;
+  border-top: 1px solid #2FC18C;
+  color: #2FC18C;
+} 
+
+/* .tab { 
+  font-family: 'Epilogue';
+  font-weight: 500;
+  font-size: 18px;
+  display: flexbox;
+  border-top: 1px solid #2FC18C;
+  color: #2FC18C;
+  margin-top: 500px;
+} */
