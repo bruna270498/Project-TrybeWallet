@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { BiTrash } from 'react-icons/bi';
 import { atualizarTotal, exluirDespesadeTabela } from '../redux/actions';
 
 class Table extends Component {
@@ -14,14 +15,14 @@ class Table extends Component {
       const valor = +value;
       return (
         <tr className="tab" key={ id }>
-          <td>{description}</td>
-          <td>{tag}</td>
-          <td>{method}</td>
-          <td>{valor.toFixed(2)}</td>
-          <td>{exchangeRates[currency].name}</td>
-          <td>{moeda}</td>
-          <td>{multValor.toFixed(2)}</td>
-          <td>Real</td>
+          <td className="des">{description}</td>
+          <td className="tag">{tag}</td>
+          <td className="pag">{method}</td>
+          <td className="val">{`R$${valor.toFixed(2)}`}</td>
+          <td className="moeConv">{exchangeRates[currency].name}</td>
+          <td className="md">{`R$${moeda}`}</td>
+          <td className="md">{`R$${multValor.toFixed(2)}`}</td>
+          <td className="moeConv">Real</td>
           <td>
             {/* <button
               type="submit"
@@ -33,10 +34,11 @@ class Table extends Component {
             </button> */}
             <button
               type="button"
+              className="btnExcluir"
               data-testid="delete-btn"
               onClick={ () => { this.botaoExcluir(id); } }
             >
-              Excluir
+              <BiTrash />
 
             </button>
           </td>
@@ -65,16 +67,16 @@ class Table extends Component {
 
   render() {
     return (
-      <table>
-        <th className="cabecalhoTabela des">Descrição|</th>
-        <th className="cabecalhoTabela tag">Tag|</th>
-        <th className="cabecalhoTabela pag">Método de pagamento|</th>
-        <th className="cabecalhoTabela val">Valentia|</th>
-        <th className="cabecalhoTabela md">Moeda|</th>
-        <th className="cabecalhoTabela cam">Câmbio utilizado|</th>
-        <th className="cabecalhoTabela valCon">Valor convertido|</th>
-        <th className="cabecalhoTabela moeConv">Moeda de conversão|</th>
-        <th className="cabecalhoTabela ed">Editar/Excluir</th>
+      <table className="table bg-primary">
+        <th className="cabecalhoTabela des">Descrição</th>
+        <th className="cabecalhoTabela tag">Tag</th>
+        <th className="cabecalhoTabela pag">Método de pagamento</th>
+        <th className="cabecalhoTabela val">Valor</th>
+        <th className="cabecalhoTabela md">Moeda</th>
+        <th className="cabecalhoTabela cam">Câmbio utilizado</th>
+        <th className="cabecalhoTabela valCon">Valor convertido</th>
+        <th className="cabecalhoTabela moeConv">Moeda de conversão</th>
+        <th className="cabecalhoTabela ed">Excluir</th>
         <tbody className="tabela">
           {this.tabela()}
         </tbody>

@@ -207,7 +207,7 @@
   top: 50px;
 }
 
-.categoriaInput { 
+.categoriaInput {
   box-sizing: border-box;
   height: 30px;
   background-color: #FFFFFF;
@@ -237,13 +237,15 @@
   left: 310px;
 }
 
+
+
 .tabelaConteiner {
   position: absolute;
   width: 1155px;
   height: 464px;
   left: 153px;
   top: 370px;
-  background: #003BE5;
+  background: #0d6efd;
   box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
   border-radius: 10px;
 }
@@ -252,63 +254,79 @@
  color: #FFFFFF;
  font-family: 'Epilogue';
  font-weight: 600;
- font-size: 17px;
+ font-size: 20px;
  display: flexbox;
  top: 30px;
  /* position: absolute; */
 }
 
- .ed {
+.ed {
   left: 1000px;
-} 
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
 
 .moeConv {
   left: 830px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .valCon {
+  border-left: 1px solid;
   left: 680px;
+  border-bottom: 1px solid;
 }
 
 .cam {
   left: 530px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .md {
   left: 460px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .val {
   left: 380px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .pag {
   left: 200px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .tag {
   left: 130px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .des {
   left: 40px;
-} 
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
 
 .tabela {
   font-family: 'Epilogue';
   font-weight: 500;
-  font-size: 18px;
-  display: flexbox;
+  font-size: 20px;
   border-top: 1px solid #2FC18C;
-  color: #2FC18C;
-} 
+  color: wheat;
+  top: 80px;
+}
 
-/* .tab { 
-  font-family: 'Epilogue';
-  font-weight: 500;
-  font-size: 18px;
-  display: flexbox;
-  border-top: 1px solid #2FC18C;
-  color: #2FC18C;
-  margin-top: 500px;
-} */
+.btnExcluir {
+  box-shadow: none;
+  color: red;
+  border-radius: 25px;
+  border-left: 1px solid ;
+}
+
