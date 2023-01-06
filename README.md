@@ -1,13 +1,47 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Trybe Wallet
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Sobre Projeto
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Neste projeto foi desenvolvido uma carteira de controle de gastos com conversor de moedas, ao utilizar essa aplicação um usuário deverá ser capaz:
+
+- Adicionar, remover e editar um gasto;
+- Exiba uma tabela com seus gastos;
+- Visualize o total de gastos convertidos para uma moeda de sua escolha;
+
+### Layout login
+
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/74669052/211015244-0a89a49b-bec5-4169-94ef-56c0bb9928f4.gif)
+
+### Layout Aplicação
+
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/74669052/211015252-a3a9df1a-599a-4bc5-800e-5603d824e0fe.gif)
+
+### Habilidades desenvolvidas:
+
+- Criar uma loja Redux em aplicações React;
+- Criar redutores no Redux em aplicações React;
+- Criar ações no Redux em aplicações React;
+- Criar dispatchers no Redux em aplicações React;
+- Conectar Redux aos componentes React;
+- Crie ações assíncronas na sua aplicação React que faz uso do Redux.
+
+### Linguagens utilizadas:
+
+- React;
+- Redux;
+- CSS;
+- React Testing Library.
+
+### Como executar:
+
+1. Clone o repositório:
+
+- use o comando: ```git clone git@github.com:bruna270498/Project-TrybeWallet.git```;
+
+2. Instale as dependências:
+
+- ```npm install```;
+
+3. Rode o comando:
+
+- ```npm start ```;
