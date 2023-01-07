@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { RiMailLine } from 'react-icons/ri';
 import { BsBag } from 'react-icons/bs';
 import { addPessoal } from '../redux/actions';
+import gastoImg from './download.png';
 
 class Login extends React.Component {
   state = {
@@ -40,7 +41,8 @@ class Login extends React.Component {
     const { isBtnDisabled } = this.state;
     return (
       <div className="formulario">
-        <h1 className="titulo">Login</h1>
+        <img className="imgGasto" src={ gastoImg } alt="omg" />
+        {/* <h1 className="titulo">Login</h1> */}
         <form onSubmit={ this.salvarForm }>
           <div className="field">
             <p className="control has-icons-left has-icons-right email">
@@ -53,7 +55,7 @@ class Login extends React.Component {
                 placeholder="Email"
                 className="input input is-medium input is-rounded email"
               />
-              <span className="icon is-small is-left">
+              <span className="icon is-small is-left iconEmail">
                 <i>
                   <RiMailLine />
                 </i>
