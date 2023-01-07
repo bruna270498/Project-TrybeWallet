@@ -10,7 +10,7 @@ Neste projeto foi desenvolvido uma carteira de controle de gastos com conversor 
 
 ### Layout login
 
-![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/74669052/211015244-0a89a49b-bec5-4169-94ef-56c0bb9928f4.gif)
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/74669052/211167120-93e94af6-6693-477e-9e08-a08bc1c4633f.gif)
 
 ### Layout Aplicação
 
